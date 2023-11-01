@@ -12,8 +12,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/signup", router);
-app.use("/login", router);
+app.post("/signup", router);
+app.post("/login", router);
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001.");

@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.post("/signup", async (req, res) => {
   try {
+    console.log("signup router");
     const { username, password } = req.body;
     const userId = uuidv4();
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -17,6 +18,12 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {});
+router.post("/login", async (req, res) => {
+  try {
+    console.log("login router");
+  } catch (error) {
+    res.json(error);
+  }
+});
 
 export { router };
