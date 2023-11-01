@@ -9,10 +9,13 @@ function Login({ setIsAuth }) {
   const cookies = new Cookies();
 
   const login = () => {
-    Axios.post("http://localhost:3001/login", {
-      username,
-      password,
-    })
+    Axios.post(
+      "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com/login",
+      {
+        username,
+        password,
+      }
+    )
       .then((res) => {
         const { token, userId, username } = res.data;
         cookies.set("token", token);

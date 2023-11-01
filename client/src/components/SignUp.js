@@ -14,7 +14,10 @@ function SignUp({ setIsAuth }) {
       return;
     }
 
-    Axios.post("http://localhost:3001/signup", user)
+    Axios.post(
+      "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com/signup",
+      user
+    )
       .then((res) => {
         const { token, userId, username, hashedPassword } = res.data;
         cookies.set("token", token);
