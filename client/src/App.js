@@ -3,26 +3,36 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import { StreamChat } from "stream-chat";
-import Cookies from "universal-cookie";
+import Cookies from "js-cookie";
 
 function App() {
-  const streamApiKey = process.env.STREAM_API_KEY;
-  const cookies = new Cookies();
-  const token = cookies.get("token");
+  const streamApiKey = "dqpeuaduyk7t"; //temporary
+  const token = Cookies.get("token");
   const client = StreamChat.getInstance(streamApiKey);
 
-  if (token) {
+  // Check if the user is already connected before rendering the components.
+  if (token && !client.userID) {
+    const user = {
+      id: Cookies.get("userId"),
+      name: Cookies.get("username"),
+      hashedPassword: Cookies.get("hashedPassword"),
+    };
+
     client
-      .connectUser(
-        {
-          id: cookies.get("userId"),
-          name: cookies.get("username"),
-          hashedPassword: cookies.get("hashedPassword"),
-        },
-        token
-      )
+      .connectUser(user, token)
       .then((user) => {
         console.log(user);
+      })
+      .catch((error) => {
+        console.error("Error connecting user:", error);
+
+        if (
+          error.code === "ERR_TOKEN_INVALID" ||
+          error.code === "ERR_TOKEN_EXPIRED"
+        ) {
+          // Handle token-related errors specifically.
+          console.error("Token validation error details:", error.response.data);
+        }
       });
   }
 

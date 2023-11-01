@@ -1,15 +1,15 @@
 import express from "express";
 import cors from "cors";
 import { router } from "./routes/signLog.js";
-import { StreamChat } from "stream-chat";
-
-const streamApiKey = process.env.STREAM_API_KEY;
-const streamApiSecret = process.env.STREAM_API_SECRET;
-const serverClient = StreamChat.getInstance(streamApiKey, streamApiSecret);
 
 const app = express();
 
 app.use(cors());
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
+});
+
 app.use(express.json());
 
 app.post("/signup", router);
