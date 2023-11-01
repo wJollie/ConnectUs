@@ -38,6 +38,8 @@ function Game({ channel, setChannel }) {
       >
         Leave Game
       </button>
+      {result.state === "Won" && <div> {result.winner} Won The Game</div>}
+      {result.state === "Tie" && <div>Tie</div>}
     </div>
   );
 }
