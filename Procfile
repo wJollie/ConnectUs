@@ -1,2 +1,2 @@
 web: npm start --prefix client
-client: cd server && npm start
+server: cd server && npm start

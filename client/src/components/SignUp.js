@@ -15,7 +15,7 @@ function SignUp({ setIsAuth }) {
     }
 
     Axios.post(
-      "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com/signup",
+      "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com:56565/signup",
       user
     )
       .then((res) => {
