@@ -4,9 +4,10 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import { StreamChat } from "stream-chat";
 import Cookies from "js-cookie";
+import dotenv from "dotenv";
 
 function App() {
-  const streamApiKey = "dqpeuaduyk7t"; //temporary
+  const streamApiKey = process.env.REACT_APP_STREAM_API_KEY; //temporary
   const token = Cookies.get("token");
   const client = StreamChat.getInstance(streamApiKey);
 

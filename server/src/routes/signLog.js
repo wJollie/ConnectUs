@@ -3,9 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcrypt";
 import { StreamChat } from "stream-chat";
 
-const streamApiKey = "dqpeuaduyk7t";
-const streamApiSecret =
-  "u4k6b7keh8sn888ycagszne4kxyh7cwfhhfxu9e58zdtfgtcj66zwburmujejt96";
+const streamApiKey = process.env.REACT_APP_STREAM_API_KEY;
+const streamApiSecret = process.env.REACT_APP_STREAM_API_SECRET;
 const serverClient = StreamChat.getInstance(streamApiKey, streamApiSecret);
 
 const router = express.Router();
