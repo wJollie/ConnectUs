@@ -1,1 +1,2 @@
-web: node server/src/index.js
+web: npm start --prefix server
+client: cd client && npm start
