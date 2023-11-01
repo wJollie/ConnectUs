@@ -7,6 +7,7 @@ function SignUp({ setIsAuth }) {
   const [user, setUser] = useState({ username: "", password: "" });
   const [confirmation, setConfirmation] = useState("");
   const [error, setError] = useState(null);
+  const port = process.env.PORT;
 
   const signUp = () => {
     if (user.password !== confirmation) {
@@ -15,7 +16,9 @@ function SignUp({ setIsAuth }) {
     }
 
     Axios.post(
-      "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com:56565/signup",
+      "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com:",
+      port,
+      "/signup",
       user
     )
       .then((res) => {

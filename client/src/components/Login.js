@@ -7,10 +7,13 @@ function Login({ setIsAuth }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); // State for displaying login errors
   const cookies = new Cookies();
+  const port = process.env.PORT;
 
   const login = () => {
     Axios.post(
-      "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com:56565/login",
+      "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com:",
+      port,
+      "/login",
       {
         username,
         password,
