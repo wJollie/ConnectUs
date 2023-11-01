@@ -1,27 +1,39 @@
 import "./App.css";
-import ErrorBoundary from "./components/ErrorBoundary";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import { StreamChat } from "stream-chat";
-import Cookies from "js-cookie";
+import Cookies from "universal-cookie";
+import { useState } from "react";
 
 function App() {
   const streamApiKey = "dqpeuaduyk7t"; //temporary
-  const token = Cookies.get("token");
+  const cookies = new Cookies();
+  const token = cookies.get("token");
   const client = StreamChat.getInstance(streamApiKey);
+
+  const [isAuth, setIsAuth] = useState(false);
+
+  const logOut = () => {
+    cookies.remove("token");
+    cookies.remove("userId");
+    cookies.remove("username");
+    cookies.remove("hashedPassword");
+    client.disconnectUser();
+    setIsAuth(false);
+  };
 
   // Check if the user is already connected before rendering the components.
   if (token && !client.userID) {
     const user = {
-      id: Cookies.get("userId"),
-      name: Cookies.get("username"),
-      hashedPassword: Cookies.get("hashedPassword"),
+      id: cookies.get("userId"),
+      name: cookies.get("username"),
+      hashedPassword: cookies.get("hashedPassword"),
     };
 
     client
       .connectUser(user, token)
       .then((user) => {
-        console.log(user);
+        setIsAuth(true);
       })
       .catch((error) => {
         console.error("Error connecting user:", error);
@@ -38,10 +50,14 @@ function App() {
 
   return (
     <div className="App">
-      <ErrorBoundary>
-        <SignUp />
-        <Login />
-      </ErrorBoundary>
+      {isAuth ? (
+        <button onClick={logOut}>Log Out</button>
+      ) : (
+        <>
+          <SignUp setIsAuth={setIsAuth} />
+          <Login setIsAuth={setIsAuth} />
+        </>
+      )}
     </div>
   );
 }

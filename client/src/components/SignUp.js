@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 
-function SignUp() {
+function SignUp({ setIsAuth }) {
   const cookies = new Cookies();
   const [user, setUser] = useState({ username: "", password: "" });
   const [confirmation, setConfirmation] = useState("");
@@ -21,6 +21,7 @@ function SignUp() {
         cookies.set("userId", userId);
         cookies.set("username", username);
         cookies.set("hashedPassword", hashedPassword);
+        setIsAuth(true);
         setError("Signup successful");
       })
       .catch((err) => {
