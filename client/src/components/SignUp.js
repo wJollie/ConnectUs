@@ -4,35 +4,62 @@ import Cookies from "universal-cookie";
 
 function SignUp() {
   const cookies = new Cookies();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({ username: "", password: "" });
+  const [confirmation, setConfirmation] = useState("");
+  const [error, setError] = useState(null);
 
   const signUp = () => {
-    Axios.post("http://localhost:3001/signup", user).then((res) => {
-      const { token, userId, username, hashedPassword } = res.data;
+    if (user.password !== confirmation) {
+      setError("Password and confirmation do not match.");
+      return;
+    }
 
-      cookies.set("token", token);
-      cookies.set("userId", userId);
-      cookies.set("username", username);
-      cookies.set("hashedPassword", hashedPassword);
-    });
+    Axios.post("http://localhost:3001/signup", user)
+      .then((res) => {
+        const { token, userId, username, hashedPassword } = res.data;
+        cookies.set("token", token);
+        cookies.set("userId", userId);
+        cookies.set("username", username);
+        cookies.set("hashedPassword", hashedPassword);
+        setError("Signup successful");
+      })
+      .catch((err) => {
+        setError("Error signing up.");
+      });
   };
+
   return (
     <div>
-      SignUp
-      <label> Sign Up</label>
+      <h2>Sign Up</h2>
+      <label>Username:</label>
       <input
+        type="text"
         placeholder="Username"
+        value={user.username}
         onChange={(event) => {
           setUser({ ...user, username: event.target.value });
         }}
       />
+      <label>Password:</label>
       <input
+        type="password"
         placeholder="Password"
+        value={user.password}
         onChange={(event) => {
           setUser({ ...user, password: event.target.value });
         }}
       />
-      <button onClick={signUp}>SignUp</button>
+      <label>Confirm Password:</label>
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        value={confirmation}
+        onChange={(event) => {
+          setConfirmation(event.target.value);
+        }}
+      />
+      <button onClick={signUp}>Sign Up</button>
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 }
