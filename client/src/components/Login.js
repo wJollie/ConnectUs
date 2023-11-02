@@ -8,8 +8,8 @@ function Login({ setIsAuth }) {
   const [error, setError] = useState(""); // State for displaying login errors
   const cookies = new Cookies();
 
-  const herokuURL = "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com/";
-  const endpoint = "login";
+  const herokuURL = "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com";
+  const endpoint = "/login";
   const fullURL = herokuURL + endpoint;
 
   const login = () => {

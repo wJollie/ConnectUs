@@ -8,8 +8,8 @@ function SignUp({ setIsAuth }) {
   const [confirmation, setConfirmation] = useState("");
   const [error, setError] = useState(null);
 
-  const herokuURL = "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com/";
-  const endpoint = "signup";
+  const herokuURL = "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com";
+  const endpoint = "/signup";
   const fullURL = herokuURL + endpoint;
 
   const signUp = () => {

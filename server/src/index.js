@@ -13,8 +13,7 @@ app.use((err, req, res, next) => {
 
 app.use(express.json());
 
-app.post("/signup", router);
-app.post("/login", router);
+app.use(router); // Use the router defined in "signLog.js"
 
 app.listen(port, () => {
   console.log("Server is running on port", { port });
