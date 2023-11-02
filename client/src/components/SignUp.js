@@ -8,13 +8,17 @@ function SignUp({ setIsAuth }) {
   const [confirmation, setConfirmation] = useState("");
   const [error, setError] = useState(null);
 
+  const herokuURL = "https://peaceful-harbor-92936-6c88f99b6db8.herokuapp.com/";
+  const endpoint = "signup";
+  const fullURL = herokuURL + endpoint;
+
   const signUp = () => {
     if (user.password !== confirmation) {
       setError("Password and confirmation do not match.");
       return;
     }
 
-    Axios.post("http://localhost:3001/signup", user)
+    Axios.post(fullURL, user)
       .then((res) => {
         const { token, userId, username, hashedPassword } = res.data;
         cookies.set("token", token);
