@@ -13,8 +13,17 @@ const Home = () => {
                 <img src={logo_img} alt="logo" /> {/* Remove .img */}
                 {/* Add other elements */}
             </div>
+            <div className={styles.right}>
+                <img src={ninja} alt="ninja" />
+                <img src={pirate} alt="pirate" />
+            <div className={styles.button_container}>
+                <Button name="Play with Strangers!" type="info"/>
+                <Button name="Play with Frans!" type="info"/>
+            </div>
+        </div>
         </>
     );
+
 };
 
 export default Home;
