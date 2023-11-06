@@ -1,24 +1,37 @@
-// auth.js
-
+const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
-// const { SECRET_KEY } = require('../config/connection.js'); // Replace with your own secret key or configuration
 
-function verifyToken(req, res, next) {
-  // Get the token from the request headers
-  const token = req.headers.authorization || '';
+const secret = 'mysecretssshhhhhhh';
+const expiration = '2h';
 
-  if (!token) {
-    return res.status(401).json({ message: 'Unauthorized - No token provided' });
-  }
+module.exports = {
+  AuthenticationError: new GraphQLError('Could not authenticate user.', {
+    extensions: {
+      code: 'UNAUTHENTICATED',
+    },
+  }),
+  authMiddleware: function ({ req }) {
+    let token = req.body.token || req.query.token || req.headers.authorization;
 
-  try {
-    // Verify the token
-    const user = jwt.verify(token, SECRET_KEY);
-    req.user = user; // Attach the user object to the request for later use
-    next();
-  } catch (error) {
-    return res.status(401).json({ message: 'Unauthorized - Invalid token' });
-  }
-}
+    if (req.headers.authorization) {
+      token = token.split(' ').pop().trim();
+    }
 
-module.exports = verifyToken;
+    if (!token) {
+      return req;
+    }
+
+    try {
+      const { data } = jwt.verify(token, secret, { maxAge: expiration });
+      req.user = data;
+    } catch {
+      console.log('Invalid token');
+    }
+
+    return req;
+  },
+  signToken: function ({ email, username, _id }) {
+    const payload = { email, username, _id };
+    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+  },
+};
