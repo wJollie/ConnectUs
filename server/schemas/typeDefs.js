@@ -29,16 +29,22 @@ const typeDefs = gql`
     messages: [Message]
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
     user: User
     chat(chatId: ID!): Chat
     game(gameId: ID!): Game
+    users: [User]
     # Add other queries for your project
   }
 
   type Mutation {
-    addUser(username: String, password: String): User
-    login(username: String, password: String): User
+    addUser(username: String, password: String): Auth
+    login(username: String, password: String): Auth
     sendMessage(chatId: ID!, content: String): Message
     playGame(gameId: ID!): String
     # Add other mutations for your project

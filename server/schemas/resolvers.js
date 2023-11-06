@@ -1,16 +1,34 @@
 const { User } = require('../models');
-const { AuthenticationError } = require('../utils/auth');
+const { AuthenticationError, signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    // Existing queries for categories, products, users, orders, etc.
+      users: async (parent, args) => {
+      return User.find();
+    },
   },
   Mutation: {
-    addUser: async (parent, args) => {
+    addUser: async (parent, {username, password}) => {
+      const user = await User.create({username, password});
+      const token = signToken(user);
+      return {token, user};
       // Modify this resolver to create users with username and password.
       // Implement password hashing here.
     },
     login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
+      if (!user) {
+        throw AuthenticationError;
+      }
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);  
+
+      return { token, user };
       // Modify this resolver to authenticate users based on username and password.
       // Check if the user exists and validate the password.
     },
