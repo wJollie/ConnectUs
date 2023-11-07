@@ -4,7 +4,6 @@ const dotenv = require("dotenv");
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const { authMiddleware } = require('./utils/auth');
-const roomHandler = require("./roomHandler");
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const { createServer } = require('http');
@@ -42,7 +41,7 @@ const startApolloServer = async () => {
     
     io.on("connection", (socket) => {
       console.log("connected", socket.id);
-      roomHandler(io, socket, rooms);
+      // roomHandler(io, socket, rooms);
     
       socket.on("disconnect", () => {
         console.log("disconnected", socket.id);
