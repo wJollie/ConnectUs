@@ -3,7 +3,7 @@ import io from "socket.io-client";
 
 let socket;
 
-const Home = () => {
+const Chat = () => {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [allMessages, setAllMessages] = useState([]);
@@ -71,4 +71,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Chat;
