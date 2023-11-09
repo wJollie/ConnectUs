@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import the Link component
 
+
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -36,6 +37,7 @@ function Login() {
         <button type="submit">Login</button>
         <h2>Not Registered??!? OH MY GOD!!! signup herr</h2>
         <Link to="/signup">Signup</Link> // Use the Link component to link to the Signup page
+        <Link to="/Home">Home</Link>
       </form>
     </div>
   );
