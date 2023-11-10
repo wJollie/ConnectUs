@@ -7,7 +7,8 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [allMessages, setAllMessages] = useState([]);
-
+  // const getUser = localStorage.getItem("username");
+  // setUsername(getUser);
   useEffect(() => {
     socketInitializer();
 

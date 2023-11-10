@@ -24,7 +24,7 @@ const typeDefs = gql`
   type Comment {
     _id: ID
     commentText: String
-    commentAuthor: User
+    commentAuthor: String
     createdAt: String
   }
 
@@ -42,7 +42,7 @@ const typeDefs = gql`
   type Thought {
     _id: ID
     thoughtText: String
-    thoughtAuthor: [User]
+    thoughtAuthor: String
     createdAt: String
     department: String
     comments: [Comment]
@@ -59,10 +59,13 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String, password: String): Auth
     login(username: String, password: String): Auth
+    addThought(thoughtText: String!, department: String!): Thought
     sendMessage(chatId: ID!, content: String): Message
     playGame(gameId: ID!): String
     # Add other mutations for your project
   }
+
+  
 `;
 
 module.exports = typeDefs;

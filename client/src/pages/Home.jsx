@@ -23,6 +23,9 @@ function Home({ signOut }) {
           <li>
             <Link to="/accounting">Accounting</Link>
           </li>
+          <li>
+            <Link to="/chat">Chat</Link>
+          </li>
         </ul>
       </div>
     </div>
