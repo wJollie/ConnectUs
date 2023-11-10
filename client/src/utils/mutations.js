@@ -24,4 +24,21 @@ mutation Login($username: String, $password: String) {
     }
   }`;
 
+  export const ADDTHOUGHT = gql`
+  mutation addThought($thoughtText: String!, $department: String!) {
+    addThought(thoughtText: $thoughtText, department: $department) {
+      _id
+      thoughtText
+      createdAt
+      username
+      department
+      comments {
+        _id
+        createdAt
+        username
+        commentText
+      }
+    }
+  }`;
+  
   
