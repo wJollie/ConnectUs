@@ -25,20 +25,22 @@ mutation login($username: String, $password: String) {
   }`;
 
   export const ADDTHOUGHT = gql`
-  mutation addThought($thoughtText: String!, $department: String!) {
+  mutation AddThought($thoughtText: String!, $department: String!) {
     addThought(thoughtText: $thoughtText, department: $department) {
       _id
-      thoughtText
       createdAt
-      username
       department
+      thoughtAuthor
+      thoughtText
       comments {
         _id
-        createdAt
-        username
         commentText
+        commentAuthor
+        createdAt
       }
     }
   }`;
+
+
   
   

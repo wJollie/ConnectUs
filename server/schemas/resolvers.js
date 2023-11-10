@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Thoughts } = require('../models');
 const { AuthenticationError, signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -28,6 +28,10 @@ const resolvers = {
 
       return { token, user };
     },
+    addThought: async (parent, {thoughtText, department}, context) => {
+      const thought = await Thoughts.create({thoughtText, department, thoughtAuthor: context.user.username});
+      return thought;
+    }
   },
 };
 

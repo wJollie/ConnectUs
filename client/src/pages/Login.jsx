@@ -27,7 +27,7 @@ const Login = (props) => {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      Auth.login(data.login.token, data.login.user.username);
     } catch (e) {
       console.error(e);
     }
@@ -48,7 +48,7 @@ const Login = (props) => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/home">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
@@ -79,7 +79,7 @@ const Login = (props) => {
                 <button type="submit">Login</button>
         <h2>Not Registered??!? OH MY GOD!!! signup herr</h2>
         <Link to="/signup">Signup</Link> 
-        <Link to="/Home">Home</Link>
+        <Link to="/home">Home</Link>
               </form>
             )}
 
