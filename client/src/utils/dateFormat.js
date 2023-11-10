@@ -1,3 +1,4 @@
+
 // dateFormat.js
 const addZero = (number) => (number < 10 ? `0${number}` : number);
 
@@ -13,4 +14,4 @@ const dateFormat = (timestamp) => {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 };
 
-module.exports = dateFormat;
+export default dateFormat;
