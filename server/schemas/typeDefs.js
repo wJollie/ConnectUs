@@ -6,8 +6,6 @@ const typeDefs = gql`
     username: String
     password: String
     winStreak: Int
-    
-    
   }
 
   type Message {
@@ -23,6 +21,13 @@ const typeDefs = gql`
     # Add other game-related fields
   }
 
+  type Comment {
+    _id: ID
+    commentText: String
+    commentAuthor: User
+    createdAt: String
+  }
+
   type Chat {
     _id: ID
     users: [User]
@@ -32,6 +37,15 @@ const typeDefs = gql`
   type Auth {
     token: ID!
     user: User
+  }
+
+  type Thought {
+    _id: ID
+    thoughtText: String
+    thoughtAuthor: [User]
+    createdAt: String
+    department: String
+    comments: [Comment]
   }
 
   type Query {
@@ -51,8 +65,4 @@ const typeDefs = gql`
   }
 `;
 
-
-
 module.exports = typeDefs;
-
-
