@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADDTHOUGHT } from '../utils/mutations';
+import Navbar from './Nav.jsx';
 
 const ThoughtForm = () => {
   const [thoughtText, setThoughtText] = useState('');
@@ -26,6 +27,7 @@ const ThoughtForm = () => {
   };
 
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <label>
         Thought:
@@ -47,6 +49,7 @@ const ThoughtForm = () => {
       </label>
       <input type="submit" value="Submit" />
     </form>
+    </div>
   );
 };
 
