@@ -6,6 +6,7 @@ import Tech from './pages/Tech.jsx';
 import Hr from './pages/Hr.jsx';
 import Sales from './pages/Sales.jsx';
 import Accounting from './pages/Accounting.jsx';
+import Landing from './pages/Landing.jsx';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Login />
+        element: <Landing />
         },
         {
           path: "/signup",

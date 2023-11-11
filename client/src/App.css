@@ -1,9 +1,71 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  margin: 0;
 }
+
+/* Landing Page Wrapper */
+.landingWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* navbar styling */
+.navbar {
+  background-color: #333;
+  position: relative;
+  width: 1920px; /*Change for mobile view */
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* Adjusted to create space between title and logout button */
+  align-items: center;
+}
+
+.title {
+  margin-left: 20px;
+  height: 50px;
+  width: 100px; /* Adjusted margin for better spacing */
+}
+
+.logoutButton {
+  margin-right: 20px; /* Adjusted margin for better spacing */
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center the list items horizontally */
+}
+
+.navbar li {
+  margin: 0 10px; /* Adjusted margin for spacing between buttons */
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 16px; /* Adjusted padding for a more button-like appearance */
+  text-decoration: none;
+  border-radius: 5px; /* Added border-radius for a rounded button appearance */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.navbar li a:hover {
+  background-color: #535bf2; /* Adjusted background color on hover */
+  color: white; /* Adjusted text color on hover */
+}
+
+.navbar li a.selected {
+  background-color: #535bf2;
+  color: white;
+}
+
+
 
 .logo {
   height: 6em;
