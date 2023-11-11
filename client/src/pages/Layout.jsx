@@ -6,6 +6,12 @@ import { useLocation } from 'react-router-dom';
 const Layout = ({ children }) => {
   const location = useLocation();
 
+  const isLandingPage = location.pathname === '/';
+  const isLoginPage = location.pathname === '/login';
+  const isSignupPage = location.pathname === '/signup';
+
+  const shouldShowNavbar = !isLandingPage && !isLoginPage && !isSignupPage;
+
   const getPageTitle = () => {
     switch (location.pathname) {
       case '/signup':
@@ -28,9 +34,10 @@ const Layout = ({ children }) => {
         return 'ConnectUs';
     }
   };
+
   return (
     <div>
-      <Navbar title={getPageTitle()} />
+      {shouldShowNavbar && <Navbar title={getPageTitle()} />}
       {children}
     </div>
   );
