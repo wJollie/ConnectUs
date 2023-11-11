@@ -2,7 +2,7 @@ import React from 'react'
 
 function Sales() {
   return (
-    <div>Sales</div>
+    <div className="blogWrapper">Sales</div>
   )
 }
 

@@ -18,20 +18,20 @@ const Navbar = ({title}) => {
       <h1 className="title">{title}</h1>
       <ul>
         <li>
-          <Link to="/tech"
+          <Link className="linkButton" to="/tech"
           >Tech</Link>
         </li>
         <li>
-          <Link to="/hr">Hr</Link>
+          <Link className="linkButton" to="/hr">Hr</Link>
         </li>
         <li>
-          <Link to="/sales">Sales</Link>
+          <Link className="linkButton" to="/sales">Sales</Link>
         </li>
         <li>
-          <Link to="/accounting">Accounting</Link>
+          <Link className="linkButton" to="/accounting">Accounting</Link>
         </li>
         <li>
-          <Link to="/chat">Direct Messages</Link>
+          <Link className="linkButton" to="/chat">Direct Messages</Link>
         </li>
       </ul>
       <button className="logoutButton" onClick={handleLogout}>LogOut</button>

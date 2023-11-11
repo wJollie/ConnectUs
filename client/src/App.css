@@ -209,6 +209,21 @@ body {
 }
 
 /* Signup Stuff Ends */
+/* Blog Page Css */
+
+.blogWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff; /* White text color */
+  background-image: url('./assets/vanishing-stripes.svg'); /* Replace with your image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+}
+
+/* Blog Stuff End */
+
 
 
 .logo {

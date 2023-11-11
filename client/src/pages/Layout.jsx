@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
       case '/login':
         return 'Login';
       case '/home':
-        return 'ConnectUs';
+        return 'Tech';
       case '/tech':
         return 'Tech';
       case '/hr':

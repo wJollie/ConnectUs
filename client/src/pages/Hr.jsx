@@ -2,7 +2,7 @@ import React from 'react'
 
 function Hr() {
   return (
-    <div>Hr</div>
+    <div className="blogWrapper">Hr</div>
   )
 }
 

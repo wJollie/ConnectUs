@@ -27,7 +27,7 @@ const ThoughtForm = () => {
   };
 
   return (
-    <div>
+    <div className="blogWrapper">
     <form onSubmit={handleSubmit}>
       <label>
         Thought:
@@ -47,7 +47,7 @@ const ThoughtForm = () => {
           required
         />
       </label>
-      <input type="submit" value="Submit" />
+      <input className="linkButton" type="submit" value="Submit" />
     </form>
     </div>
   );
