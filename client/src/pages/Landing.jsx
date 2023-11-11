@@ -1,21 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 function Landing() {
   return (
     <div className="landingWrapper">
-        <h1>Welcome to ConnectUs employee portal!</h1>
+      <div className="landingContent">
+        <h1 className="landingTitle">Welcome to ConnectUs Employee Portal!</h1>
         <div className="landingLinks">
-            <ul>
+          <ul>
             <li>
-                <Link to="/signup">Sign Up</Link>
+              <Link to="/signup" className="landingButton signUpButton linkButton">
+                Sign Up
+              </Link>
             </li>
             <li>
-                <Link to="/login">Log In</Link>
+              <Link to="/login" className="landingButton loginButton linkButton">
+                Log In
+              </Link>
             </li>
-            </ul>
+          </ul>
         </div>
+      </div>
     </div>
   );
 }
