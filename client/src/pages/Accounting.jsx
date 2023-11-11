@@ -2,7 +2,7 @@ import React from 'react'
 
 function Accounting() {
   return (
-    <div>Accounting</div>
+    <div className="blogWrapper">Accounting</div>
   )
 }
 

@@ -40,7 +40,7 @@ const Chat = () => {
   }
 
   return (
-    <div>
+    <div className="blogWrapper">
       <h1>Chat app</h1>
       <h1>Enter a username</h1>
 

@@ -1,20 +1,12 @@
 body {
   margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
-
-/* Landing Page Wrapper */
-.landingWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* navbar styling */
+/* Navbar stuff */
 .navbar {
   background-color: #333;
-  position: relative;
-  width: 1920px; /*Change for mobile view */
+  position: relative; /*Change for mobile view */
   top: 0;
   z-index: 1000;
   display: flex;
@@ -64,6 +56,173 @@ body {
   background-color: #535bf2;
   color: white;
 }
+/* Navbar stuff ended */
+
+/* Landing Page Css */
+
+.landingWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff; /* White text color */
+  background-image: url('./assets/vanishing-stripes.svg'); /* Replace 'your-image-url.jpg' with the URL or path to your image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+}
+
+.landingContent {
+  text-align: center;
+}
+
+.landingTitle {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle text shadow */
+}
+
+.landingLinks {
+  margin-top: 20px;
+  list-style-type: none; /* Remove list item bullets */
+  padding: 0; /* Remove default padding for the list */
+}
+
+.landingLinks li {
+  display: inline; /* Display list items horizontally */
+  margin-right: 20px; /* Adjust the spacing between items */
+}
+
+.landingButton {
+  display: inline-block;
+  padding: 14px 24px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #fff; /* Set link color to white */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.landingButton:hover {
+  background-color: #3c72cb; /* New highlight color on hover */
+  color: #fff; /* Keep the text color white on hover */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add a stronger text shadow on hover */
+}
+
+/* Landing Page Stuff Ended */
+
+/* Login Page Css */
+
+.loginWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  background-image: url('./assets/vanishing-stripes.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.loginContent {
+  text-align: center;
+}
+
+.loginTitle {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.loginForm {
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.landingButton {
+  display: inline-block;
+  padding: 14px 24px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.landingButton:hover {
+  background-color: #3c72cb;
+  color: #fff;
+}
+
+.signupLink {
+  display: block;
+  margin-top: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+/* Login Stuff Ends */
+
+/* Signup Page Css */
+.signupWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff; /* White text color */
+  background-image: url('./assets/vanishing-stripes.svg'); /* Replace with your image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+}
+
+.signupContent {
+  text-align: center;
+}
+
+.signupTitle {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.signupForm {
+  margin-top: 20px;
+}
+
+.signupInput {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* Signup Stuff Ends */
+/* Blog Page Css */
+
+.blogWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff; /* White text color */
+  background-image: url('./assets/vanishing-stripes.svg'); /* Replace with your image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+}
+
+/* Blog Stuff End */
 
 
 
