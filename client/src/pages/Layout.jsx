@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      {shouldShowNavbar && <Navbar title={getPageTitle()} />}
+      {shouldShowNavbar && <Navbar title={"title"} />}
       {children}
     </div>
   );
