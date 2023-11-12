@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation,useQuery } from '@apollo/client';
 import { ADDTHOUGHT } from '../utils/mutations';
+import { THOUGHTSBYDEPT } from '../utils/queries';
 
 const ThoughtForm = () => {
   const [thoughtText, setThoughtText] = useState('');
   const [thoughtAuthor, setThoughtAuthor] = useState('');
   const [department, setDepartment] = useState('Tech');
+  const {loading,data}=useQuery(THOUGHTSBYDEPT,{
+    variables:{department:"Tech"}
+  })
+  const thoughtdata= data?.thoughtsbydepartment || []
+  console.log(thoughtdata)
   const [addThought, { error }] = useMutation(ADDTHOUGHT);
 
   // New state to store thoughts

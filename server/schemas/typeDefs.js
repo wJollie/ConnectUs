@@ -54,6 +54,7 @@ const typeDefs = gql`
     game(gameId: ID!): Game
     users: [User]
     # Add other queries for your project
+    thoughtsbydepartment(department:String!):[Thought]
   }
 
   type Mutation {

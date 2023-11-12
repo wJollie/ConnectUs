@@ -6,6 +6,15 @@ const resolvers = {
       users: async (parent, args) => {
       return User.find();
     },
+  thoughtsbydepartment: async(parent,{department})=> {
+    try {
+      const thought=await Thoughts.find({department})
+      console.log(thought)
+      return thought
+    } catch (error) {
+      throw AuthenticationError;
+    }
+  }
   },
   Mutation: {
     addUser: async (parent, {username, password}) => {
