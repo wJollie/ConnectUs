@@ -24,3 +24,20 @@ export const QUERY_MESSAGE = gql`
     }
   }
 `;
+
+export const THOUGHTSBYDEPT=gql`
+query thoughtsbydepartment($department: String!) {
+  thoughtsbydepartment(department: $department) {
+    _id
+    thoughtText
+    thoughtAuthor
+    createdAt
+    department
+    comments {
+      _id
+      commentText
+      commentAuthor
+      createdAt
+    }
+  }
+}`;

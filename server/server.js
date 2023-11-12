@@ -33,19 +33,18 @@ const startApolloServer = async () => {
       context: authMiddleware,
     })
   );
-
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client/dist")));
+  
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/dist')));
+    
 
     // const httpServer = createServer(app);
     // const io = new Server(httpServer, {
     //   cors: { origin: "*" },
     // });
-
     // io.on("connection", (socket) => {
     //   console.log("connected", socket.id);
     //   // roomHandler(io, socket, rooms);
-
     //   socket.on("disconnect", () => {
     //     console.log("disconnected", socket.id);
     //   });
