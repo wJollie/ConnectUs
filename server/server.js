@@ -37,21 +37,21 @@ const startApolloServer = async () => {
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../client/dist")));
 
-    const httpServer = createServer(app);
-    const io = new Server(httpServer, {
-      cors: { origin: "*" },
-    });
+    // const httpServer = createServer(app);
+    // const io = new Server(httpServer, {
+    //   cors: { origin: "*" },
+    // });
 
-    io.on("connection", (socket) => {
-      console.log("connected", socket.id);
-      // roomHandler(io, socket, rooms);
+    // io.on("connection", (socket) => {
+    //   console.log("connected", socket.id);
+    //   // roomHandler(io, socket, rooms);
 
-      socket.on("disconnect", () => {
-        console.log("disconnected", socket.id);
-      });
-    });
+    //   socket.on("disconnect", () => {
+    //     console.log("disconnected", socket.id);
+    //   });
+    // });
 
-    httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+    // httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
   }
 
   db.once("open", () => {
