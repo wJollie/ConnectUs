@@ -8,11 +8,14 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const { createServer } = require('http');
 const { Server } = require('socket.io');
+const cors = require('cors');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 dotenv.config();
 
+app.use(cors());
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -37,7 +40,7 @@ const startApolloServer = async () => {
       cors: { origin: "*" },
     });
     
-    const rooms = [];
+    
     
     io.on("connection", (socket) => {
       console.log("connected", socket.id);
