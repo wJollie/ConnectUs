@@ -1,10 +1,10 @@
 // Layout.js
 import React from 'react';
 import Navbar from './Nav';
-import { useLocation } from 'react-router-dom';
+import { useNavigation } from 'react-router-dom';
 
 const Layout = ({ children }) => {
-  const location = useLocation();
+  const navigate = useNavigation();
 
   const isLandingPage = location.pathname === '/';
   const isLoginPage = location.pathname === '/login';
@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   const shouldShowNavbar = !isLandingPage && !isLoginPage && !isSignupPage;
 
   const getPageTitle = () => {
-    switch (location.pathname) {
+    switch (navigate.pathname) {
       case '/signup':
         return 'Signup';
       case '/login':
