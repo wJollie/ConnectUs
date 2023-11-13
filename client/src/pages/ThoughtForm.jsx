@@ -11,7 +11,7 @@ const ThoughtForm = ({ department }) => {
     variables: { department: department || "" },
   });
   const thoughtdata = data?.thoughtsbydepartment || [];
-  console.log(thoughtdata);
+  // console.log(thoughtdata);
   const [addThought, { error }] = useMutation(ADDTHOUGHT);
 
   // New state to store thoughts
