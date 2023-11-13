@@ -1,9 +1,14 @@
-import React from 'react'
+// TechPage.js or TechComponent.js
+import React from 'react';
+import ThoughtForm from './ThoughtForm';
 
-function Hr() {
+const Hr = () => {
   return (
-    <div className="blogWrapper">Hr</div>
-  )
-}
+    <div>
+      <ThoughtForm department="Hr" />
+      {/* Other content specific to the Tech page */}
+    </div>
+  );
+};
 
-export default Hr
+export default Hr;
