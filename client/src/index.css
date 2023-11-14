@@ -23,6 +23,7 @@ h1 {
   line-height: 1.1;
 }
 
+
 .linkButton {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -35,6 +36,8 @@ h1 {
   transition: border-color 0.25s;
   color: white;
 }
+
+
 .linkButton:hover {
   border-color: white;
   background-color: #646cff;
