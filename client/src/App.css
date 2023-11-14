@@ -306,6 +306,31 @@ body {
   }
 }
 
+@media (max-width: 1000px) {
+
+  .navButton {
+    scale: 1;
+    
+   }
+
+   .title {
+    scale: 0.5;
+    padding-right: 200px;
+   }
+
+   .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+
+   .mobileLogoutButton {
+    align-items: end;
+    padding-left: 150px;
+   }
+}
+
 .card {
   padding: 2em;
 }
@@ -313,3 +338,5 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+

@@ -18,20 +18,22 @@ const Navbar = ({title}) => {
       <h1 className="title">{title}</h1>
       <ul>
         <li>
-          <Link className="linkButton" to="/tech"
+          <Link className="linkButton navButton" to="/tech"
           >Tech</Link>
         </li>
         <li>
-          <Link className="linkButton" to="/hr">Hr</Link>
+          <Link className="linkButton navButton" to="/hr">Hr</Link>
         </li>
         <li>
-          <Link className="linkButton" to="/sales">Sales</Link>
+          <Link className="linkButton navButton" to="/sales">Sales</Link>
         </li>
         <li>
-          <Link className="linkButton" to="/accounting">Accounting</Link>
+          <Link className="linkButton navButton" to="/accounting">Accounting</Link>
         </li>
       </ul>
-      <button className="logoutButton" onClick={handleLogout}>LogOut</button>
+      <div className="mobileLogoutButtonWrapper">
+      <button className="logoutButton navButton" onClick={handleLogout}>LogOut</button>
+      </div>
     </nav>
     </div>
   );
