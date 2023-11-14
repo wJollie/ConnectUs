@@ -10,6 +10,7 @@ ConnectUs is a powerful React application designed to streamline communication w
 - [Technologies Used](#technologies-used)
 - [Contributors](#contributors)
 - [License](#license)
+- [Deployed App](#deployed-app)
 ## Features
 
 ConnectUs boasts four distinct pages, each catering to a specific department within the company:
@@ -72,3 +73,4 @@ A big shoutout to the team for their collaborative efforts in bringing ConnectUs
 
 https://connectus943-7bbab6a61bad.herokuapp.com/
 
+![Capture](https://github.com/wJollie/ConnectUs/assets/61369939/9c763df7-5f8c-47fa-841b-3cefe6f2aafa)
