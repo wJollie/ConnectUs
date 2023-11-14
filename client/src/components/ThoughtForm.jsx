@@ -65,7 +65,7 @@ const ThoughtForm = ({ department }) => {
           <div key={thought._id} className="chatMessages">
             <p>{thought.thoughtAuthor} Says:</p>
             <p>{thought.thoughtText}</p>
-            <button onClick={() => handleDeleteThought(thought._id)}>Delete</button>
+            <button className='linkButton' onClick={() => handleDeleteThought(thought._id)}>Delete</button>
           </div>
         ))}
       </div>
