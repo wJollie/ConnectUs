@@ -1,6 +1,6 @@
 // TechPage.js or TechComponent.js
 import React from 'react';
-import ThoughtForm from './ThoughtForm';
+import ThoughtForm from '../components/ThoughtForm';
 
 const Accounting = () => {
   return (
