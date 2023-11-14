@@ -30,9 +30,6 @@ const Navbar = ({title}) => {
         <li>
           <Link className="linkButton" to="/accounting">Accounting</Link>
         </li>
-        <li>
-          <Link className="linkButton" to="/chat">Direct Messages</Link>
-        </li>
       </ul>
       <button className="logoutButton" onClick={handleLogout}>LogOut</button>
     </nav>
