@@ -55,7 +55,7 @@ const ThoughtForm = ({ department }) => {
           </div>
         ))}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className='form' onSubmit={handleSubmit}>
         <label>
           Message:
           <input

@@ -18,10 +18,13 @@ body {
   margin-left: 20px;
   height: 50px;
   width: 100px; /* Adjusted margin for better spacing */
+  color: #fff;
 }
 
 .logoutButton {
   margin-right: 20px; /* Adjusted margin for better spacing */
+  background-color: #1A1A1A;
+  color: #fff;
 }
 
 .navbar ul {
@@ -138,14 +141,23 @@ body {
   width: 100%;
 }
 
+.form {
+  width: 30%;
+  max-width: 1200px;
+  margin: 20px auto;
+  
+ 
+}
+
 .form-group {
   margin-bottom: 20px;
 }
 
 .form-input {
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 10px;
   font-size: 16px;
+  margin-right: 10px;
 }
 
 .landingButton {
@@ -213,18 +225,20 @@ body {
 
 .blogWrapper {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   color: #fff; /* White text color */
   background-image: url('./assets/vanishing-stripes.svg'); /* Replace with your image */
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the background image */
+  align-items: center;
 }
 
 .chatBox {
-  max-height: 700px;
-  width: 600px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
+  max-height: 500px;
+  width: 90%;
+  overflow-y: scroll;
+  border: 1px solid #333;
   border-radius: 8px;
   padding: 15px;
   margin-top: 10px;
@@ -240,6 +254,7 @@ body {
 .chatMessages {
   /*  */
   border: 1px solid #ccc;
+  padding: 5px 5px 5px 10px;
 }
 
 .chatMessage {
