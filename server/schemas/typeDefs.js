@@ -65,14 +65,17 @@ const typeDefs = gql`
     playGame(gameId: ID!): String
     # Add other mutations for your project
   }
-  
   type Mutation {
     deleteThought(thoughtId: ID!): Thought
   }
+  
+  
   type DeleteThoughtResponse {
     success: Boolean!
     message: String
   }
+
+ 
 
   
 `;

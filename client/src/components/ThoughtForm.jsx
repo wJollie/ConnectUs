@@ -1,8 +1,8 @@
-// ThoughtForm.js
 import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADDTHOUGHT } from '../utils/mutations';
 import { THOUGHTSBYDEPT } from '../utils/queries';
+import { DELETETHOUGHT } from '../utils/mutations'; 
 
 const ThoughtForm = ({ department }) => {
   const [thoughtText, setThoughtText] = useState('');
@@ -43,6 +43,19 @@ const ThoughtForm = ({ department }) => {
     }
   };
 
+  const [deleteThought, { error: deleteThoughtError }] = useMutation(DELETETHOUGHT);
+
+  const handleDeleteThought = async (thoughtId) => {
+    try {
+      await deleteThought({
+        variables: { thoughtId },
+      });
+      setThoughts(thoughts.filter((thought) => thought._id !== thoughtId));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="blogWrapper">
       {/* Display thoughts in a chat box */}
@@ -52,6 +65,7 @@ const ThoughtForm = ({ department }) => {
           <div key={thought._id} className="chatMessages">
             <p>{thought.thoughtAuthor} Says:</p>
             <p>{thought.thoughtText}</p>
+            <button onClick={() => handleDeleteThought(thought._id)}>Delete</button>
           </div>
         ))}
       </div>
@@ -65,15 +79,6 @@ const ThoughtForm = ({ department }) => {
             required
           />
         </label>
-        {/* <label>
-          Author:
-          <input
-            type="text"
-            value={thoughtAuthor}
-            onChange={(e) => setThoughtAuthor(e.target.value)}
-            required
-          />
-        </label> */}
         <input className="linkButton" type="submit" value="Submit" />
       </form>
     </div>
