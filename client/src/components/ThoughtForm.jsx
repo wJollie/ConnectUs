@@ -7,12 +7,22 @@ import { DELETETHOUGHT } from '../utils/mutations';
 const ThoughtForm = ({ department }) => {
   const [thoughtText, setThoughtText] = useState('');
   const [thoughtAuthor, setThoughtAuthor] = useState('');
-  const { loading, data, refetch } = useQuery(THOUGHTSBYDEPT, {
+  const { loading, data} = useQuery(THOUGHTSBYDEPT, 
+{
     variables: { department: department || "" },
+    
   });
   const thoughtdata = data?.thoughtsbydepartment || [];
   // console.log(thoughtdata);
-  const [addThought, { error }] = useMutation(ADDTHOUGHT);
+  // const [addThought, { data, loading, error }] = useMutation(ADDTHOUGHT, {
+  //   refetchQueries: [{ query: THOUGHTSBYDEPT, GET_THOUGHs,  }],
+  // });
+  const [addThought] = useMutation(ADDTHOUGHT, {
+    refetchQueries: [
+      THOUGHTSBYDEPT, // DocumentNode object parsed with gql
+      'thoughtsbydepartment' // Query name
+    ],
+  });
 
   // New state to store thoughts
   const [thoughts, setThoughts] = useState([]);
@@ -43,7 +53,13 @@ const ThoughtForm = ({ department }) => {
     }
   };
 
-  const [deleteThought, { error: deleteThoughtError }] = useMutation(DELETETHOUGHT);
+  // const [deleteThought] = useMutation(DELETETHOUGHT);
+  const [deleteThought] = useMutation(DELETETHOUGHT, {
+    refetchQueries: [
+      THOUGHTSBYDEPT, // DocumentNode object parsed with gql
+      'thoughtsbydepartment' // Query name
+    ],
+  });
 
   const handleDeleteThought = async (thoughtId) => {
     try {
@@ -51,6 +67,7 @@ const ThoughtForm = ({ department }) => {
         variables: { thoughtId },
       });
       setThoughts(thoughts.filter((thought) => thought._id !== thoughtId));
+      
     } catch (e) {
       console.error(e);
     }
