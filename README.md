@@ -55,7 +55,9 @@ Explore the different department pages (HR, Sales, Accounting, Tech) to experien
 ## Technologies Used
 - React
 - Graphql
+- Express.js
 - MongoDB
+- Mongoose ODM
 
 ## Contributors
 - Nelson Martinez (https://github.com/MartinezN2014)
