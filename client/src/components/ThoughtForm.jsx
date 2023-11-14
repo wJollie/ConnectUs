@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADDTHOUGHT } from '../utils/mutations';
 import { THOUGHTSBYDEPT } from '../utils/queries';
-import { DELETETHOUGHT } from '../utils/mutations'; 
+import { DELETETHOUGHT } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const ThoughtForm = ({ department }) => {
   const [thoughtText, setThoughtText] = useState('');
   const [thoughtAuthor, setThoughtAuthor] = useState('');
-  const { loading, data} = useQuery(THOUGHTSBYDEPT, 
-{
-    variables: { department: department || "" },
-    
-  });
+  const { loading, data } = useQuery(THOUGHTSBYDEPT,
+    {
+      variables: { department: department || "" },
+
+    });
   const thoughtdata = data?.thoughtsbydepartment || [];
   // console.log(thoughtdata);
   // const [addThought, { data, loading, error }] = useMutation(ADDTHOUGHT, {
@@ -61,13 +62,20 @@ const ThoughtForm = ({ department }) => {
     ],
   });
 
-  const handleDeleteThought = async (thoughtId) => {
+  const handleDeleteThought = async (thoughtId, user) => {
     try {
-      await deleteThought({
-        variables: { thoughtId },
-      });
-      setThoughts(thoughts.filter((thought) => thought._id !== thoughtId));
-      
+      const username = Auth.getUsername()
+      if (username === user) {
+        await deleteThought({
+          variables: { thoughtId },
+        });
+        setThoughts(thoughts.filter((thought) => thought._id !== thoughtId));
+
+      } else {
+        console.log("differentuser")
+        return
+      }
+
     } catch (e) {
       console.error(e);
     }
@@ -82,7 +90,7 @@ const ThoughtForm = ({ department }) => {
           <div key={thought._id} className="chatMessages">
             <p>{thought.thoughtAuthor} Says:</p>
             <p>{thought.thoughtText}</p>
-            <button className='linkButton' onClick={() => handleDeleteThought(thought._id)}>Delete</button>
+            <button className='linkButton' onClick={() => handleDeleteThought(thought._id, thought.thoughtAuthor)}>Delete</button>
           </div>
         ))}
       </div>
