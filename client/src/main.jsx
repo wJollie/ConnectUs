@@ -1,7 +1,7 @@
 import React from 'react'
 import Signup from './pages/Signup.jsx';
 import Login from './pages/Login.jsx';
-import Home from './pages/Home.jsx';
+// import Home from './pages/Home.jsx';
 import Tech from './pages/Tech.jsx';
 import Hr from './pages/Hr.jsx';
 import Sales from './pages/Sales.jsx';
@@ -11,7 +11,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import Chat from './pages/chat.jsx'
 
 const router = createBrowserRouter([
   {
@@ -49,10 +48,6 @@ const router = createBrowserRouter([
         {
           path: "/accounting",
           element: <Accounting />
-        },
-        {
-          path: '/chat',
-          element: <Chat />
         }
 
      ]

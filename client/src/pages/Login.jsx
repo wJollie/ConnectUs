@@ -34,7 +34,6 @@ const Login = () => {
       console.error(e);
     }
 
-    // clear form values
     setFormState({
       username: '',
       password: '',
