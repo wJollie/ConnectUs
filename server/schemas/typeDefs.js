@@ -64,10 +64,9 @@ const typeDefs = gql`
     sendMessage(chatId: ID!, content: String): Message
     playGame(gameId: ID!): String
     # Add other mutations for your project
-  }
-  type Mutation {
     deleteThought(thoughtId: ID!): Thought
   }
+  
   
   
   type DeleteThoughtResponse {
