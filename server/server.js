@@ -6,8 +6,8 @@ const { expressMiddleware } = require("@apollo/server/express4");
 const { authMiddleware } = require("./utils/auth");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
-const { createServer } = require("http");
-const { Server } = require("socket.io");
+// const { createServer } = require("http");
+// const { Server } = require("socket.io");
 const cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
@@ -20,7 +20,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
-// Create a new instance of an Apollo server with the GraphQL schema
+
 const startApolloServer = async () => {
   await server.start();
 
@@ -40,20 +40,6 @@ const startApolloServer = async () => {
     app.get("*", (req, res) => {
       res.sendFile(path.join(__dirname, "../client/dist/index.html"));
     });
-
-    // const httpServer = createServer(app);
-    // const io = new Server(httpServer, {
-    //   cors: { origin: "*" },
-    // });
-    // io.on("connection", (socket) => {
-    //   console.log("connected", socket.id);
-    //   // roomHandler(io, socket, rooms);
-    //   socket.on("disconnect", () => {
-    //     console.log("disconnected", socket.id);
-    //   });
-    // });
-
-    // httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
   }
 
   db.once("open", () => {
